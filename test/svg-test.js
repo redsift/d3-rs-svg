@@ -4,10 +4,14 @@ var tape = require("tape"),
     d3 = require("d3-selection"),
     xunit = require("tap-xunit"),
     pretty = require("tap-diff"),
+    fs = require("fs"),
     svg = require("../");
 
-if (process.env.CI) {
-    tape.createStream().pipe(xunit({})).pipe(process.stdout);
+if (process.env.CIRCLE_TEST_REPORTS) {
+    var path = process.env.CIRCLE_TEST_REPORTS + '/junit';
+    fs.mkdirSync(path);
+    var wstream = fs.createWriteStream(path + '/junit.xml');
+    tape.createStream().pipe(xunit({})).pipe(wstream);
 } else {
     tape.createStream().pipe(pretty({})).pipe(process.stdout);
 }
