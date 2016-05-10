@@ -26,12 +26,13 @@
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
-    "prepublish": "npm run test"
+    "publish": "npm run test"
   },
   "dependencies": {
     "d3-selection": "~0.7.1"
   },
   "devDependencies": {
+    "html": "^0.0.10",    
     "babel-preset-es2015-rollup": "^1.1.0",
     "browser-sync": "^2.12.5",
     "del": "^2.2.0",
