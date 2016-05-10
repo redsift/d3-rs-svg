@@ -23,13 +23,13 @@
   "scripts": {
     "serve": "gulp -o d3-rs-svg -g d3-selection serve",
     "build": "gulp -o d3-rs-svg -g d3-selection build",
-    "pretest": "npm run build",
+    "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
     "prepublish": "npm run test"
   },
   "dependencies": {
-    "d3-selection": "~0.7.0"
+    "d3-selection": "~0.7.1"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^1.1.0",
@@ -41,7 +41,7 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
-    "jsdom": "~8.4.0",
+    "jsdom": "~9.0.0",
     "json2module": "~0.0.3",
     "rollup": "^0.26",
     "rollup-plugin-babel": "^2.4.0",
