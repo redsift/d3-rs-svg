@@ -6,7 +6,7 @@ var tape = require("tape"),
 tape("svg() generates svg", function(t) {
     var document = global.document = jsdom.jsdom("<div id='test'></div>");
     try {   
-        var elm = svg.svg();
+        var elm = svg.html();
 
         var el = d3.select('#test');
         el.call(elm);
@@ -22,7 +22,7 @@ tape("svg() generates svg", function(t) {
 tape("svg() generates 1 svg", function(t) {
     var document = global.document = jsdom.jsdom("<div id='test'></div>");
     try {   
-        var elm = svg.svg();
+        var elm = svg.html();
 
         var el = d3.select('#test');
         el.call(elm).call(elm);
@@ -39,7 +39,7 @@ tape("svg() generates 2 svgs", function(t) {
     var document = global.document = jsdom.jsdom("<div id='test'></div>");
     try {   
         var el = d3.select('#test');
-        el.call(svg.svg('svg-1')).call(svg.svg('svg-2'));
+        el.call(svg.html('svg-1')).call(svg.html('svg-2'));
         
         t.equal(el.selectAll('svg').size(), 2)
         

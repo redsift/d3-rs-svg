@@ -4,5 +4,5 @@ export {
 
 
 export {
-  default as svg
+  default as html
 } from "./src/svg";

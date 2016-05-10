@@ -10,6 +10,28 @@ UMD from //static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es15.min.js
 
 ## Usage
 
+### Browser
+	
+	<script src="//static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es15.min.js"></script>
+	<script>
+		var svg = d3_rs_svg.html();
+		...
+	</script>
+
+### ES6
+
+	import { svg } from "d3-rs-svg";
+	let eml = svg.html();
+	...
+	
+### Require
+
+	var svg = require("d3-rs-svg");
+	var eml = svg.html();
+	...
+	
+By convention, the SVG element is meant to be hosted in a HTML node, hence `svg.html()`
+
 ### Parameters
 
 |Name|Description|Transition|
