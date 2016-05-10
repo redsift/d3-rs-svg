@@ -30,7 +30,7 @@
     var el = d3.select('#elm');
           
     svg.style('rect{fill: yellow;}');
-    el.call(svg).select(svg.child())
+    el.call(svg).select(svg.self()).select(svg.child())
       .append('rect')
         .attr('width', svg.childWidth())
         .attr('height', svg.childHeight());

@@ -27,7 +27,11 @@ if (argv.g) {
 }
 var globalMap = {};
 globals.forEach((d) => {
-    globalMap[d] = 'd3';
+    var target = 'd3';
+    if (d.indexOf('d3-rs') === 0) {
+        target = d.replace(/-/g, '_');
+    }
+    globalMap[d] = target;
 });
 
 var task = {};

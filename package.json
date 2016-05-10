@@ -1,6 +1,6 @@
 {
   "name": "d3-rs-svg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -15,7 +15,7 @@
     "url": "https://medium.com/@rahulpowar"
   },
   "main": "distribution/d3-rs-svg.umd-es15.min.js",
-  "jsnext:main": "index.js",
+  "jsnext:main": "index",
   "repository": {
     "type": "git",
     "url": "https://github.com/redsift/d3-rs-svg.git"
@@ -26,12 +26,16 @@
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
-    "prepublish": "npm run test"
+    "publish": "npm test",
+    "install": "npm run build"
   },
   "dependencies": {
     "d3-selection": "~0.7.1"
   },
   "devDependencies": {
+    "html": "^0.0.10",
+    "tap-xunit": "^1.3.1",   
+    "tap-diff": "^0.1.1", 
     "babel-preset-es2015-rollup": "^1.1.0",
     "browser-sync": "^2.12.5",
     "del": "^2.2.0",

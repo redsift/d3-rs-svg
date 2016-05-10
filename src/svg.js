@@ -76,8 +76,8 @@ export default function svg(id) {
   }
 
   _impl.self = function() { return 'svg' + (id ?  '#' + id : ''); }
-  _impl.child = function() { return _impl.self() + '>' + inner; }
-  _impl.childDefs = function() { return _impl.self() + '>defs'; }
+  _impl.child = function() { return inner; }
+  _impl.childDefs = function() { return 'defs'; }
   _impl.childWidth = function() { return innerWidth; }
   _impl.childHeight = function() { return innerHeight; }
 
