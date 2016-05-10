@@ -1,6 +1,6 @@
 {
   "name": "d3-rs-svg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -15,7 +15,7 @@
     "url": "https://medium.com/@rahulpowar"
   },
   "main": "distribution/d3-rs-svg.umd-es15.min.js",
-  "jsnext:main": "index.js",
+  "jsnext:main": "index",
   "repository": {
     "type": "git",
     "url": "https://github.com/redsift/d3-rs-svg.git"
@@ -26,7 +26,8 @@
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
-    "publish": "npm run test"
+    "publish": "npm test",
+    "install": "npm run build"
   },
   "dependencies": {
     "d3-selection": "~0.7.1"

@@ -20,9 +20,11 @@ UMD from //static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es15.min.js
 
 ### ES6
 
-	import { svg } from "d3-rs-svg";
+	import * as svg from "d3-rs-svg";
 	let eml = svg.html();
 	...
+
+If using rollup.js for a browser target, ensure `d3-rs-svg` is part of the global map.
 	
 ### Require
 
