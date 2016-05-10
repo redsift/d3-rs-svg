@@ -1,6 +1,6 @@
 {
   "name": "d3-rs-svg",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
