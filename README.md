@@ -58,7 +58,7 @@ Note, this form of chaining does not work for parameters that do not support tra
 	var el = d3.select('#elm')
 		.call(svg.style('rect{fill: yellow;}'));
 	
-  	el.select(svg.child())
+  	el.select(svg.self()).select(svg.child())
       	.append('rect')				// add a rect to the SVG we can paint with CSS
         	.attr('width', svg.childWidth())
         	.attr('height', svg.childHeight());

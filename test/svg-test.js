@@ -8,16 +8,18 @@ var tape = require("tape"),
     svg = require("../");
 
 if (process.env.CIRCLE_TEST_REPORTS) {
+    // Pretty errors on CircleCI
     var path = process.env.CIRCLE_TEST_REPORTS + '/junit';
     fs.mkdirSync(path);
     var wstream = fs.createWriteStream(path + '/junit.xml');
     tape.createStream().pipe(xunit({})).pipe(wstream);
 } else {
+    // Pretty errors on Console
     tape.createStream().pipe(pretty({})).pipe(process.stdout);
 }
 
 function dumpOnError(t, document) {
-    t.test("state", function(s) {
+    t.test("DOM state", function(s) {
         if (t._ok || process.env.CI) return s.end();
         console.log(html.prettyPrint(jsdom.serializeDocument(document), {indent_size: 2}));
         return s.end();
@@ -80,7 +82,7 @@ tape("svg() generates a selectable child", function(t) {
         var elm = svg.html();
 
         var el = d3.select('#test');
-        var child = el.call(elm).call(elm).select(elm.child());
+        var child = el.call(elm).call(elm).select(elm.self()).select(elm.child());
         
         t.equal(child.size(), 1)
         
