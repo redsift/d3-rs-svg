@@ -2,7 +2,15 @@ var tape = require("tape"),
     jsdom = require("jsdom"),
     html = require("html"),
     d3 = require("d3-selection"),
+    xunit = require("tap-xunit"),
+    pretty = require("tap-diff"),
     svg = require("../");
+
+if (process.env.CI) {
+    tape.createStream().pipe(xunit({})).pipe(process.stdout);
+} else {
+    tape.createStream().pipe(pretty({})).pipe(process.stdout);
+}
 
 function dumpOnError(t, document) {
     t.test("state", function(s) {
