@@ -1,0 +1,38 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" 
+    href="https://static.redsift.io/ui/latest/css/redsift-xtra.min.css">
+    
+  <style>
+	body {
+        margin: 1em;
+	}
+
+  svg {
+    fill: red;
+  }
+  
+  </style>  
+  </head>
+  <body>
+    <h1>SVG Demo</h2>  
+    <div id="elm"></div>
+    
+    <script src="https://d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
+    <script src="/d3-rs-svg.umd-es15.min.js"></script>
+    <script>
+        
+    'use strict';
+    
+    var svg = d3_rs_svg.svg();
+    
+    d3.select('#elm').call(svg);
+    
+    setTimeout(function() {
+      
+      d3.select('#elm').call(svg);
+    }, 1000);
+    
+    </script>
+  </body>
+</html>
