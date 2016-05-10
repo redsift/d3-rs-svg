@@ -9,8 +9,9 @@
 	}
 
   svg {
-    fill: red;
+    background-color: blue;
   }
+
   
   </style>  
   </head>
@@ -26,11 +27,21 @@
     
     var svg = d3_rs_svg.svg();
     
-    d3.select('#elm').call(svg);
-    
+    var el = d3.select('#elm');
+          
+    svg.style('rect{fill: yellow;}');
+    el.call(svg).select(svg.child())
+      .append('rect')
+        .attr('width', svg.childWidth())
+        .attr('height', svg.childHeight());
+              
     setTimeout(function() {
-      
-      d3.select('#elm').call(svg);
+      el.transition().duration(1000).delay(1000)
+        .call(svg.scale(2.0).style('rect{fill: green;}'))
+      .on('end', function() {
+        el.transition().duration(333)
+          .call(svg.scale(1.0).margin({ top: 32, left: 32, bottom: 16, right: 16 }).style('rect{fill: red;}'));          
+      });
     }, 1000);
     
     </script>
