@@ -33,7 +33,7 @@
     "d3-selection": "~0.7.2"
   },
   "devDependencies": {
-    "@redsift/tape-reel": "~0.0.2",    
+    "@redsift/tape-reel": "~0.0.3",    
     "babel-preset-es2015-rollup": "^1.1.0",
     "browser-sync": "^2.12.5",
     "del": "^2.2.0",

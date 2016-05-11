@@ -6,12 +6,12 @@ machine:
     NAME: d3-rs-svg
 
 checkout: 
-  post: 
-    - git fetch --tags
-    - npm install
   pre:
     - sudo pip install awscli
     - npm install -g npm
+  post: 
+    - git fetch --tags
+    - npm install
 
 dependencies: 
   override:
