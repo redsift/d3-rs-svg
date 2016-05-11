@@ -11,6 +11,7 @@ checkout:
     - npm install
   pre:
     - sudo pip install awscli
+    - npm install -g npm
 
 dependencies: 
   override:
