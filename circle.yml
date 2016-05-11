@@ -26,6 +26,9 @@ deployment:
   production:
     branch: /release-.*/
     commands:
+      - echo "Publishing to NPM"
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - npm publish --access=public    
       - echo "Uploading to S3 bucket..."
       - aws s3 cp ${CIRCLE_ARTIFACTS}/distribution s3://$S3_BUCKET/reusable/$NAME/latest --recursive --acl public-read
       - |

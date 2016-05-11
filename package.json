@@ -26,7 +26,6 @@
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
-    "publish": "npm test",
     "install": "npm run build"
   },
   "dependencies": {
