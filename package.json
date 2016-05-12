@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -26,7 +26,7 @@
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
     "version": "json2module package.json > package.js",
-    "install": "npm run build"
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "d3-selection": "~0.7.2"
