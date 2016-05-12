@@ -1,8 +1,8 @@
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" 
-    href="https://static.redsift.io/ui/latest/css/redsift-xtra.min.css">
-    
+  <link rel="stylesheet" type="text/css"
+    href="https://static.redsift.io/ui/latest/css/full/redsift-xtra.min.css">
+
   <style>
 	body {
         margin: 1em;
@@ -12,38 +12,38 @@
     background-color: blue;
   }
 
-  
-  </style>  
+
+  </style>
   </head>
   <body>
-    <h1>SVG Demo</h2>  
+    <h1>SVG Demo</h2>
     <div id="elm"></div>
-    
+
     <script src="https://d3js.org/d3.v4.0.0-alpha.35.min.js"></script>
     <script src="/d3-rs-svg.umd-es15.min.js"></script>
     <script>
-        
+
     'use strict';
-    
+
     var svg = d3_rs_svg.html();
-    
+
     var el = d3.select('#elm');
-          
+
     svg.style('rect{fill: yellow;}');
     el.call(svg).select(svg.self()).select(svg.child())
       .append('rect')
         .attr('width', svg.childWidth())
         .attr('height', svg.childHeight());
-              
+
     setTimeout(function() {
       el.transition().duration(1000).delay(1000)
         .call(svg.scale(2.0).style('rect{fill: green;}'))
       .on('end', function() {
         el.transition().duration(333)
-          .call(svg.scale(1.0).margin({ top: 32, left: 32, bottom: 16, right: 16 }).style('rect{fill: red;}'));          
+          .call(svg.scale(1.0).margin({ top: 32, left: 32, bottom: 16, right: 16 }).style('rect{fill: red;}'));
       });
     }, 1000);
-    
+
     </script>
   </body>
 </html>
