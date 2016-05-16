@@ -6,13 +6,13 @@
 
 [![Circle CI](https://circleci.com/gh/Redsift/d3-rs-svg.svg?style=svg)](https://circleci.com/gh/Redsift/d3-rs-svg)
 
-UMD from //static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es15.min.js
+UMD from //static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es2015.min.js
 
 ## Usage
 
 ### Browser
 	
-	<script src="//static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es15.min.js"></script>
+	<script src="//static.redsift.io/reusable/d3-rs-svg/latest/d3-rs-svg.umd-es2015.min.js"></script>
 	<script>
 		var svg = d3_rs_svg.html();
 		...

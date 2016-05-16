@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -14,7 +14,7 @@
     "name": "Rahul Powar",
     "url": "https://medium.com/@rahulpowar"
   },
-  "main": "distribution/d3-rs-svg.umd-es15.min.js",
+  "main": "distribution/d3-rs-svg.umd-es2015.min.js",
   "jsnext:main": "index",
   "repository": {
     "type": "git",
