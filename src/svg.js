@@ -9,7 +9,7 @@ export default function svg(id) {
       bottom = 16,
       left = 16,
       scale = 1,
-      inner = 'g.inner',
+      inner = 'g.svg-child',
       innerWidth = -1,
       innerHeight = -1,
       style = null,
@@ -44,7 +44,7 @@ export default function svg(id) {
         
         el.append('defs');
         
-        el.append('g').attr('class', 'inner');
+        el.append('g').attr('class', 'svg-child');
       }
       
       var defsEl = el.select('defs');

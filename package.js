@@ -1,5 +1,5 @@
 export var name = "@redsift/d3-rs-svg";
-export var version = "0.2.2";
+export var version = "0.2.3";
 export var description = "Creates a SVG element using D3v4.";
 export var keywords = ["svg","redsift","d3","visualization"];
 export var homepage = "https://github.com/redsift/d3-rs-svg";

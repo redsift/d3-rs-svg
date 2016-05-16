@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
