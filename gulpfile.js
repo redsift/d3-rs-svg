@@ -51,7 +51,7 @@ gulp.task('umd', task.umd = () => {
         .pipe(buffer())
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(rename({basename: outputFilename}))
-        .pipe(rename({suffix: '.umd-es15'}))
+        .pipe(rename({suffix: '.umd-es2015'}))
         .pipe(gulp.dest('distribution/'))
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
