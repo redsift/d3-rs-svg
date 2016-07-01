@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -25,11 +25,10 @@
     "build": "gulp -o d3-rs-svg -g d3-selection build",
     "pretest": "npm outdated && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src",
-    "version": "json2module package.json > package.js",
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "d3-selection": "~0.7.2"
+    "d3-selection": "~1.0.0"
   },
   "devDependencies": {
     "@redsift/tape-reel": "~0.0.3",    
@@ -42,13 +41,14 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
-    "json2module": "~0.0.3",
-    "rollup": "^0.26",
-    "rollup-plugin-babel": "^2.4.0",
-    "rollup-plugin-includepaths": "^0.1.2",
-    "rollup-stream": "^1.4.1",
+    "rollup": "^0.33.0",
+    "rollup-plugin-node-resolve": "^1.5.0",  
+    "rollup-plugin-commonjs": "^3.0.0",     
+    "rollup-plugin-buble": "^0.11.0",
+    "rollup-plugin-json": "^2.0.0",
+    "rollup-stream": "^1.8.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "yargs": "^4.6.0"
+    "yargs": "^4.7.1"
   }
 }

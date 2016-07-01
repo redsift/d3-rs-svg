@@ -2,7 +2,7 @@ import { select } from "d3-selection";
 
 export default function svg(id) {
   
-  var width = 300,
+  let width = 300,
       height = 150,
       top = 16,
       right = 16,
@@ -13,6 +13,7 @@ export default function svg(id) {
       innerWidth = -1,
       innerHeight = -1,
       style = null,
+      background = null,
       classed = 'svg-svg';
 
   function _updateInnerWidth() {
@@ -27,13 +28,13 @@ export default function svg(id) {
   _updateInnerHeight();
         
   function _impl(context) {
-    var selection = context.selection ? context.selection() : context,
+    let selection = context.selection ? context.selection() : context,
         transition = (context.selection !== undefined);
 
     selection.each(function() {
-      var parent = select(this);
+      let parent = select(this);
 
-      var el = parent.select(_impl.self());
+      let el = parent.select(_impl.self());
       if (el.empty()) {
         el = parent.append('svg')
                     .attr('version', '1.1')
@@ -43,26 +44,30 @@ export default function svg(id) {
                     .attr('id', id);
         
         el.append('defs');
-        
+        el.append('rect').attr('class', 'background');
         el.append('g').attr('class', 'svg-child');
       }
       
-      var defsEl = el.select('defs');
+      let defsEl = el.select('defs');
       
-      var styleEl = defsEl.selectAll('style').data(style ? [ style ] : []);
+      let styleEl = defsEl.selectAll('style').data(style ? [ style ] : []);
       styleEl.exit().remove();
       styleEl = styleEl.enter().append('style').attr('type', 'text/css').merge(styleEl);
       styleEl.text(style);
       
-      var gEl = el.select(_impl.child());
-      
+      let rect = el.select('rect.background')
+                  .attr('width', background != null ? width * scale : null)
+                  .attr('height', background != null ? height * scale : null);      
+            
       // Never transition
-      
       el.attr('class', classed)
+
+      let g = el.select(_impl.child());
             
       if (transition === true) {
         el = el.transition(context);
-        gEl = gEl.transition(context);
+        g = g.transition(context);
+        rect = rect.transition(context);
       }     
 
       // Transition if enabled
@@ -70,7 +75,9 @@ export default function svg(id) {
         .attr('height', height * scale)
         .attr('viewBox', '0 0 ' + width + ' ' + height);
     
-      gEl.attr('transform', 'translate(' + left + ',' + top + ')');
+      g.attr('transform', 'translate(' + left + ',' + top + ')');
+
+      rect.attr('fill', background);
 
     });
   }
@@ -91,6 +98,10 @@ export default function svg(id) {
 
   _impl.style = function(value) {
     return arguments.length ? (style = value, _impl) : style;
+  };
+
+  _impl.background = function(value) {
+    return arguments.length ? (background = value, _impl) : background;
   };
     
   _impl.width = function(value) {

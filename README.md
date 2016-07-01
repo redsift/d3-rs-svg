@@ -36,13 +36,14 @@ By convention, the SVG element is meant to be hosted in a HTML node, hence `svg.
 
 ### Parameters
 
-|Name|Description|Transition|
-|----|-----------|----------|
-|width,height|SVG viewport size, px|Y|
-|scale|SVG scaling factor, floating point|Y|
-|margin|margin convention, Object or integer px|Y|
-|classed|SVG custom class|N|
-|style|SVG CSS embed|N|
+Name|Description|Transition
+----|-----------|----------
+width,height|SVG viewport size, px|Y
+scale|SVG scaling factor, floating point|Y
+margin|margin convention, Object or integer px|Y
+classed|SVG custom class|N
+style|SVG CSS embed|N
+background|Rect background color|Y
 
 Parameters that support transition can be animated and chained.
 
