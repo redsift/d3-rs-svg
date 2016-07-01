@@ -8,7 +8,7 @@
         margin: 1em;
 	}
 
-  svg {
+  svg#sized {
     background-color: blue;
   }
 
@@ -25,22 +25,28 @@
 
     'use strict';
 
-    var svg = d3_rs_svg.html();
-
     var el = d3.select('#elm');
+    
+    
+    el.call(d3_rs_svg.html('vanilla'));
+    
+    var filled = d3_rs_svg.html('filled');
+    el.call(filled.background('antiquewhite')).transition().duration(3000).call(filled.background('red'));
 
-    svg.style('rect{fill: yellow;}');
+    var svg = d3_rs_svg.html('sized');
+
     el.call(svg).select(svg.self()).select(svg.child())
       .append('rect')
         .attr('width', svg.childWidth())
-        .attr('height', svg.childHeight());
+        .attr('height', svg.childHeight())
+        .attr('fill', 'yellow');
 
     setTimeout(function() {
       el.transition().duration(1000).delay(1000)
-        .call(svg.scale(2.0).style('rect{fill: green;}'))
+        .call(svg.scale(2.0).background('green'))
       .on('end', function() {
         el.transition().duration(333)
-          .call(svg.scale(1.0).margin({ top: 32, left: 32, bottom: 16, right: 16 }).style('rect{fill: red;}'));
+          .call(svg.scale(1.0).margin({ top: 32, left: 32, bottom: 16, right: 16 }).background('red'));
       });
     }, 1000);
 
