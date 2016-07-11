@@ -43,3 +43,20 @@ tape("svg() generates a selectable child", function(t) {
     
     t.end();
 });  
+
+tape("svg() generates a title", function(t) {
+    var elm = svg.html();
+    var title = 'Specified Title';
+    elm.title(title);
+    
+    var el = d3.select('#test');
+    el.call(elm).call(elm);
+    
+    t.equal(el.selectAll('svg').size(), 1)
+    
+    t.equal(el.selectAll('title').size(), 1)
+    
+    t.equal(el.select('title').text(), title)
+    
+    t.end();
+});  

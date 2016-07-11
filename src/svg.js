@@ -14,6 +14,9 @@ export default function svg(id) {
       innerHeight = -1,
       style = null,
       background = null,
+      title = null,
+      desc = null,
+      role = 'img',
       classed = 'svg-svg';
 
   function _updateInnerWidth() {
@@ -36,13 +39,19 @@ export default function svg(id) {
 
       let el = parent.select(_impl.self());
       if (el.empty()) {
+        let ariaTitle = (id == null ? '' : id + '-') + 'title';
+        let ariaDesc = (id == null ? '' : id + '-') + 'desc';   
         el = parent.append('svg')
                     .attr('version', '1.1')
                     .attr('xmlns', 'http://www.w3.org/2000/svg')
                     .attr('xmlns:xlink', 'http://www.w3.org/1999/xlink') // d3 work around for xlink not required as per D3 4.0
                     .attr('preserveAspectRatio', 'xMidYMid meet')
+                    .attr('aria-labelledby', ariaTitle)
+                    .attr('aria-describedby', ariaDesc)
                     .attr('id', id);
-        
+                    
+        el.append('title').attr('id', ariaTitle);        
+        el.append('desc').attr('id', ariaDesc);      
         el.append('defs');
         el.append('rect').attr('class', 'background');
         el.append('g').attr('class', 'svg-child');
@@ -55,6 +64,11 @@ export default function svg(id) {
       styleEl = styleEl.enter().append('style').attr('type', 'text/css').merge(styleEl);
       styleEl.text(style);
       
+      el.attr('role', role);
+      
+      el.select('title').text(title);
+      el.select('desc').text(desc);
+            
       let rect = el.select('rect.background')
                   .attr('width', background != null ? width * scale : null)
                   .attr('height', background != null ? height * scale : null);      
@@ -121,7 +135,19 @@ export default function svg(id) {
   _impl.scale = function(value) {
     return arguments.length ? (scale = value, _impl) : scale;
   };
- 
+
+  _impl.title = function(value) {
+    return arguments.length ? (title = value, _impl) : title;
+  };  
+
+  _impl.desc = function(value) {
+    return arguments.length ? (desc = value, _impl) : desc;
+  };   
+  
+  _impl.role = function(value) {
+    return arguments.length ? (role = value, _impl) : role;
+  };  
+   
   _impl.margin = function(value) {
     if (!arguments.length) return {
       top: top,

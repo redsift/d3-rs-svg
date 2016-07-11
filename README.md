@@ -44,6 +44,8 @@ margin|margin convention, Object or integer px|Y
 classed|SVG custom class|N
 style|SVG CSS embed|N
 background|Rect background color|Y
+title||N
+role|https://www.w3.org/TR/wai-aria/roles#img|N
 
 Parameters that support transition can be animated and chained.
 
@@ -68,4 +70,8 @@ Note, this form of chaining does not work for parameters that do not support tra
 		 el.transition().duration(1000).delay(500)
           	.call(svg.scale(2.0).style('rect{fill: green;}'));	// this green is applied after 1s of delay but 500ms before the scale changes
 	});
+	
+## Accessible features
+
+This module implements some of the [features described here](https://www.sitepoint.com/tips-accessible-svg/).	
 	
