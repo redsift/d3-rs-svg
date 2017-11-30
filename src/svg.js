@@ -17,7 +17,8 @@ export default function svg(id) {
       title = null,
       desc = null,
       role = 'img',
-      classed = 'svg-svg';
+      classed = 'svg-svg',
+      overflow = false;
 
   function _updateInnerWidth() {
       innerWidth = width - left - right;
@@ -56,7 +57,8 @@ export default function svg(id) {
         el.append('rect').attr('class', 'background');
         el.append('g').attr('class', 'svg-child');
       }
-      
+      el.attr('overflow', overflow ? 'visible' : 'hidden');
+
       let defsEl = el.select('defs');
       
       let styleEl = defsEl.selectAll('style').data(style ? [ style ] : []);
@@ -147,6 +149,10 @@ export default function svg(id) {
   _impl.role = function(value) {
     return arguments.length ? (role = value, _impl) : role;
   };  
+
+  _impl.overflow = function(value) {
+    return arguments.length ? (overflow = value, _impl) : overflow;
+  };    
    
   _impl.margin = function(value) {
     if (!arguments.length) return {
