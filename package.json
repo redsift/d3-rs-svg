@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -28,7 +28,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "d3-selection": "~1.0.0"
+    "d3-selection": "~1.2.0"
   },
   "devDependencies": {
     "@redsift/tape-reel": "~0.0.3",    
