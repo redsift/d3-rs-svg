@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -26,13 +26,13 @@
   "scripts": {
     "serve": "gulp -o d3-rs-svg -g d3-selection serve",
     "prepublish": "npm run clean; npm run build",
-    "build": "npm run clean; node ./node_modules/@redsift/rollup-bundler/src/index.js",
+    "build": "npm run clean; node ./node_modules/@redsift/rollup-bundler/src/index.js bundle.config.js",
     "clean": "rm -rf dist",
     "pretest": "npm outdated || true && npm run build",
     "test": "tape 'test/**/*-test.js' && eslint index.js src"
   },
   "dependencies": {
-    "d3-selection": "~1.2.0"
+    "d3-selection": "^1.2.0"
   },
   "devDependencies": {
     "@redsift/rollup-bundler": "^0.3.2",
