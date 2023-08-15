@@ -1,6 +1,6 @@
 {
   "name": "@redsift/d3-rs-svg",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Creates a SVG element using D3v4.",
   "keywords": [
     "svg",
@@ -32,13 +32,13 @@
     "test": "tape 'test/**/*-test.js' && eslint src"
   },
   "dependencies": {
-    "d3-selection": "^1.2.0"
+    "d3-selection": "^1.4.2"
   },
   "devDependencies": {
-    "@redsift/rollup-bundler": "^0.3.2",
+    "@redsift/rollup-bundler": "^0.7.2",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
-    "@redsift/tape-reel": "~0.0.3",
+    "@redsift/tape-reel": "0.1.1",
     "babel-preset-es2015-rollup": "^1.1.0",
     "browser-sync": "^2.12.5",
     "del": "^2.2.0",
@@ -57,5 +57,14 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^4.8.0"
+  },
+  "overrides": {
+    "lodash": "4.17.21",
+    "lodash.template": "4.5.0",
+    "chokidar": "3.5.3",
+    "glob-parent": "6.0.2",
+    "diff": "5.1.0",
+    "jsdom": "22.1.0",
+    "bl": "6.0.5"
   }
 }
