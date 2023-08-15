@@ -26,10 +26,10 @@
     'use strict';
 
     var el = d3.select('#elm');
-    
-    
+
+
     el.call(d3_rs_svg.html('vanilla'));
-    
+
     var filled = d3_rs_svg.html('filled');
     el.call(filled.overflow(true).background('antiquewhite').title('Filled Background').desc('A long description')).transition().duration(3000).call(filled.background('red'));
 
