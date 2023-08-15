@@ -1,11 +1,7 @@
-version: 2
+version: 2.1
 
 jobs:
   build:
-    environment:
-      S3_BUCKET: redsift-static
-      NAME: d3-rs-svg
-    shell: /bin/bash
     docker:
       - image: cimg/node:16.20.2-browsers
     steps:
